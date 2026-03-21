@@ -1,5 +1,5 @@
-__pycache__
+venvCredit/
+.git/
+__pycache__/
 *.pyc
-.git
-.gitignore
-*.ipynb_checkpoints
+.env
