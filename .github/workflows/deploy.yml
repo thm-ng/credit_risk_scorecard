@@ -1,0 +1,23 @@
+name: Deploy to EC2
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd ~/credit_risk_scorecard
+            git pull origin main
+            docker build -t credit-risk-dashboard .
+            docker stop credit-risk-dashboard || true
+            docker rm credit-risk-dashboard || true
+            docker run -d --name credit-risk-dashboard -p 8050:8050 --restart unless-stopped credit-risk-dashboard
