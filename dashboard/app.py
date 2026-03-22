@@ -172,7 +172,7 @@ app.layout = dbc.Container([
 
     # Footer
     html.Hr(),
-    html.P("Case Study — Senior Credit Risk Analyst | Built with Python, Plotly & Dash",
+    html.P("Built with Python, Plotly & Dash",
            className="text-center text-muted", style={"fontSize": "0.8rem"}),
 
 ], fluid=True)
