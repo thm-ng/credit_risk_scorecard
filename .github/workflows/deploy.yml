@@ -8,16 +8,17 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy via SSH
+      - name: Deploy to EC2
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ec2-user
           key: ${{ secrets.EC2_SSH_KEY }}
-          timeout: 30m
-          command_timeout: 30m
+          timeout: 10m
+          command_timeout: 10m
           script: |
-            cd ~/credit_risk_scorecard
+            cd ~/credit-risk-scorecard || git clone https://github.com/${{ github.repository }}.git ~/credit-risk-scorecard
+            cd ~/credit-risk-scorecard
             git pull origin main
             docker build -t credit-risk-dashboard .
             docker stop credit-risk-dashboard || true
