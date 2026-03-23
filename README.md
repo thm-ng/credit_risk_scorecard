@@ -1,15 +1,15 @@
-# Credit Risk Scorecard — Case Study
+# Credit Risk Scorecard
 
-End-to-end credit risk analytics: data extraction (SQL), EDA, WoE/IV feature engineering, logistic regression scorecard, credit strategy & interactive Dash dashboard.
+End-to-end credit risk scorecard for unsecured consumer lending — from SQL data extraction and WoE/IV feature engineering through logistic regression modelling, credit strategy optimisation, and an interactive analytics dashboard.
 
 ## Quick Start
 
 ```bash
 pip install -r requirements.txt
 
-# 1. Run the notebook to build the model and save artifacts
-jupyter notebook credit_risk_case_study.ipynb
-# Execute all cells — this downloads data, trains the scorecard, and saves to data/model_artifacts.pkl
+# 1. Build the scorecard and save model artifacts
+jupyter notebook credit_risk_scorecard.ipynb
+# Execute all cells — downloads data, trains the model, and saves to data/model_artifacts.pkl
 
 # 2. Launch the dashboard
 python dashboard/app.py
@@ -19,11 +19,11 @@ python dashboard/app.py
 ## Project Structure
 
 ```
-├── credit_risk_case_study.ipynb   # Full analysis notebook (SQL, EDA, scorecard, strategy)
+├── credit_risk_scorecard.ipynb   # Analysis notebook (SQL, EDA, scorecard, strategy)
 ├── dashboard/
-│   └── app.py                     # Plotly Dash dashboard (3 tabs, interactive)
-├── data/                          # Auto-generated: SQLite DB + model artifacts
-├── Dockerfile                     # Container for AWS deployment
+│   └── app.py                    # Plotly Dash dashboard (3 tabs, interactive)
+├── data/                         # Auto-generated: SQLite DB + model artifacts
+├── Dockerfile                    # Container for deployment
 ├── requirements.txt
 └── README.md
 ```
