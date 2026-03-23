@@ -1,5 +1,7 @@
 # Credit Risk Scorecard
 
+**[Live Dashboard](http://63.177.87.122:8050/)**
+
 End-to-end credit risk scorecard for unsecured consumer lending — from SQL data extraction and WoE/IV feature engineering through logistic regression modelling, credit strategy optimisation, and an interactive analytics dashboard.
 
 ## Quick Start
